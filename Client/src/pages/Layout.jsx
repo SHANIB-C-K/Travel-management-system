@@ -1,7 +1,8 @@
 // importing section
 import React from "react";
 import { Outlet } from "react-router-dom";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/Navbar/NavBar";
+import Footer from "./../components/Footer/Footer";
 
 const Layout = () => {
   return (
@@ -9,6 +10,7 @@ const Layout = () => {
       {/* navbar component */}
       <NavBar />
       <Outlet />
+      <Footer />
     </>
   );
 };
