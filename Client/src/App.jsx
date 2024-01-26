@@ -6,8 +6,9 @@ import HomeScreen from "./pages/HomeScreen";
 import About from "./pages/About";
 import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
-import PlaceRouter from "./pages/Placerouter";
+import PlaceRouter from "./pages/PlaceRouter";
 import NotFound from "./pages/NotFound";
+import PlaceRouter from "./pages/PlaceRouter";
 
 const App = () => {
   return (
