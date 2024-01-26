@@ -9,6 +9,7 @@ const NavBar = () => {
             <p>20% off on next booking</p>
             <p>Mobile no +91 6282844209</p>
           </div>
+          hello
         </div>
       </div>
     </>
