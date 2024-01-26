@@ -1,6 +1,6 @@
 // importing section
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.png";
 
 const NavBar = () => {
@@ -24,6 +24,30 @@ const NavBar = () => {
               </Link>
             </div>
             {/* Navbar Link section */}
+            <div>
+              <ul>
+                <li className="py-4">
+                  <NavLink to="/" onClick={() => window.scrollTo(0, 0)}>
+                    Home
+                  </NavLink>
+                </li>
+                <li className="py-4">
+                  <NavLink to="/blogs" onClick={() => window.scrollTo(0, 0)}>
+                    Blogs
+                  </NavLink>
+                </li>
+                <li className="py-4">
+                  <NavLink to="/places" onClick={() => window.scrollTo(0, 0)}>
+                    Best Places
+                  </NavLink>
+                </li>
+                <li className="py-4">
+                  <NavLink to="/about" onClick={() => window.scrollTo(0, 0)}>
+                    About
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
