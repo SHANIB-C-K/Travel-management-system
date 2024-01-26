@@ -24,8 +24,8 @@ const NavBar = () => {
               </Link>
             </div>
             {/* Navbar Link section */}
-            <div>
-              <ul>
+            <div className="hidden sm:block">
+              <ul className="flex items-center gap-6">
                 <li className="py-4">
                   <NavLink to="/" onClick={() => window.scrollTo(0, 0)}>
                     Home
