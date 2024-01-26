@@ -8,7 +8,6 @@ import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
 import PlaceRouter from "./pages/PlaceRouter";
 import NotFound from "./pages/NotFound";
-import PlaceRouter from "./pages/PlaceRouter";
 
 const App = () => {
   return (
