@@ -2,6 +2,14 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../assets/logo.png";
+import { FaCaretDown } from "react-icons/fa";
+
+// dropdown links opject create section
+const DropDownLinks = [
+  { name: "Our Services", link: "/#services" },
+  { name: "Top Brands", link: "/#mobile_brands" },
+  { name: "Location", link: "/#location" },
+];
 
 const NavBar = () => {
   return (
@@ -23,28 +31,69 @@ const NavBar = () => {
                 <img src={Logo} alt="Logo section" className="h-16" />
               </Link>
             </div>
-            {/* Navbar Link section */}
+            {/* Desktop size Navbar Link section */}
             <div className="hidden sm:block">
               <ul className="flex items-center gap-6">
                 <li className="py-4">
-                  <NavLink to="/" onClick={() => window.scrollTo(0, 0)}>
+                  <NavLink
+                    to="/"
+                    activeClassName="active"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
                     Home
                   </NavLink>
                 </li>
                 <li className="py-4">
-                  <NavLink to="/blogs" onClick={() => window.scrollTo(0, 0)}>
+                  <NavLink
+                    to="/blogs"
+                    activeClassName="active"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
                     Blogs
                   </NavLink>
                 </li>
                 <li className="py-4">
-                  <NavLink to="/places" onClick={() => window.scrollTo(0, 0)}>
+                  <NavLink
+                    to="/places"
+                    activeClassName="active"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
                     Best Places
                   </NavLink>
                 </li>
                 <li className="py-4">
-                  <NavLink to="/about" onClick={() => window.scrollTo(0, 0)}>
+                  <NavLink
+                    to="/about"
+                    activeClassName="active"
+                    onClick={() => window.scrollTo(0, 0)}
+                  >
                     About
                   </NavLink>
+                </li>
+                {/* Dropdown creating section */}
+                <li className="py-4 relative group cursor-pointer">
+                  <div className="dropdown flex items-center">
+                    <span>Quick Links</span>
+                    <span>
+                      <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
+                    </span>
+                  </div>
+                  <div className="absolute -left-9 top-[57px] z-[9999] hidden group-hover:block shadow-md text-black w-[150px] bg-white p-2">
+                    <ul>
+                      {DropDownLinks.map((data) => {
+                        return (
+                          <li key={data.name}>
+                            <a
+                              href={data.link}
+                              className="inline-block w-full rounded-md p-2 hover:bg-primary/20"
+                            >
+                              {data.name}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 </li>
               </ul>
             </div>
