@@ -16,10 +16,10 @@ const ResponsiveMenu = ({ showMenu, setShowMenu }) => {
           {/* top section */}
           <div>
             <div className="flex items-center justify-start gap-4">
-              <FaUserCircle size={50} className="text-primary" />
+              <FaUserCircle size={50} className="text-gray-500" />
               <div className="text-gray-500">
                 <h1>Hello user</h1>
-                <h1 className="text-sm text-gray-500">Premium user</h1>
+                <h1 className="text-sm text-slate-500">Premium user</h1>
               </div>
             </div>
           </div>
