@@ -66,8 +66,8 @@ const Navbar = ({ handleOrderPopup }) => {
                   </a>
                   <div className="absolute -left-9 z-[9999] hidden w-[150px] rounded-md bg-white p-2 text-black group-hover:block shadow-md ">
                     <ul className="space-y-3">
-                      {DropdownLinks.map((data) => (
-                        <li key={data.name}>
+                      {DropdownLinks.map((data, id) => (
+                        <li key={id}>
                           <a
                             className="inline-block w-full rounded-md p-2 hover:bg-primary/20"
                             href={data.link}
