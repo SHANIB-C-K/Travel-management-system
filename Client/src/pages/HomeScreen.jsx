@@ -2,6 +2,7 @@
 import React from "react";
 import NatureVid from "../assets/video/main.mp4";
 import HomeSearch from "../components/HomeSearch/HomeSearch";
+import Place from "../components/Places/Place";
 
 const HomeScreen = () => {
   return (
@@ -19,6 +20,7 @@ const HomeScreen = () => {
           {/* HomeSearch component  */}
           <HomeSearch />
         </div>
+        <Place />
       </div>
     </>
   );
