@@ -1,3 +1,4 @@
+// importing section
 import React from "react";
 import NatureVid from "../assets/video/main.mp4";
 import HomeSearch from "../components/HomeSearch/HomeSearch";
@@ -15,6 +16,7 @@ const HomeScreen = () => {
           >
             <source src={NatureVid} type="video/mp4" />
           </video>
+          {/* HomeSearch component  */}
           <HomeSearch />
         </div>
       </div>
