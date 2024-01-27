@@ -10,7 +10,7 @@ const BannerImg = ({ img }) => {
   };
 
   return (
-    <div data-aos="zoom-in" className="h-[400px" w-full style={bgImg}></div>
+    <div data-aos="zoom-in" className="h-[400px] w-full" style={bgImg}></div>
   );
 };
 
