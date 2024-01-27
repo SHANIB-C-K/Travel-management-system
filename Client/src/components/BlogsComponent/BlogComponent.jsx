@@ -36,7 +36,7 @@ const BlogsData = [
   },
 ];
 
-const BlogsComp = () => {
+const BlogsComponent = () => {
   return (
     <>
       {/* html section */}
@@ -56,4 +56,4 @@ const BlogsComp = () => {
   );
 };
 
-export default BlogsComp;
+export default BlogsComponent;
