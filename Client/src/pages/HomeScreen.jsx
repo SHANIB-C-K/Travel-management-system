@@ -3,6 +3,8 @@ import React from "react";
 import NatureVid from "../assets/video/main.mp4";
 import HomeSearch from "../components/HomeSearch/HomeSearch";
 import Place from "../components/Places/Place";
+import BannerImg from "../components/BannerImg/BannerImg";
+import BannerPic from "../assets/cover-women.jpg";
 
 const HomeScreen = () => {
   return (
@@ -20,7 +22,10 @@ const HomeScreen = () => {
           {/* HomeSearch component  */}
           <HomeSearch />
         </div>
+        {/* place component section */}
         <Place />
+        {/* Banner image component section */}
+        <BannerImg img={BannerPic} />
       </div>
     </>
   );

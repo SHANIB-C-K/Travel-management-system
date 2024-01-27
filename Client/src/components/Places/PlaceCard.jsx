@@ -11,9 +11,9 @@ const PlaceCard = ({
   type,
   handleOrderPopup,
 }) => {
-  
   return (
     <>
+      {/* html section */}
       <div
         className="shadow-lg transition-all duration-500 hover:shadow-xl dark:bg-slate-950 dark:text-white cursor-pointer"
         onClick={handleOrderPopup}
