@@ -8,8 +8,21 @@ import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
 import PlaceRouter from "./pages/PlaceRouter";
 import NotFound from "./pages/NotFound";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const App = () => {
+  // aos section
+  React.useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 900,
+      easing: "ease-in-sine",
+      delay: 100,
+    });
+    AOS.refresh();
+  }, []);
+
   return (
     <>
       {/* Router creating section */}
