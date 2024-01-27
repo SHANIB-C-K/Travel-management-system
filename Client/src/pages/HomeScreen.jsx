@@ -5,6 +5,7 @@ import HomeSearch from "../components/HomeSearch/HomeSearch";
 import Place from "../components/Places/Place";
 import BannerImg from "../components/BannerImg/BannerImg";
 import BannerPic from "../assets/cover-women.jpg";
+import Blogs from "./Blogs";
 
 const HomeScreen = () => {
   return (
@@ -26,6 +27,8 @@ const HomeScreen = () => {
         <Place />
         {/* Banner image component section */}
         <BannerImg img={BannerPic} />
+        {/* Blogs xomponent section */}
+        <Blogs />
       </div>
     </>
   );
