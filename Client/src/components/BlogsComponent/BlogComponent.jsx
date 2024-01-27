@@ -1,9 +1,11 @@
+// importig section
 import React from "react";
 import BlogCard from "./BlogsCard.jsx";
 import Img1 from "../../assets/places/tajmahal.jpg";
 import Img2 from "../../assets/places/water.jpg";
 import Img3 from "../../assets/places/boat.jpg";
 
+// blogsdata json create section
 const BlogsData = [
   {
     id: 1,
@@ -37,6 +39,7 @@ const BlogsData = [
 const BlogsComp = () => {
   return (
     <>
+      {/* html section */}
       <div className="dark:bg-gray-900 dark:text-white py-10">
         <section data-aos="fade-up" className="container ">
           <h1 className=" my-8 border-l-8 border-primary/50 py-2 pl-2 text-3xl font-bold">
