@@ -10,6 +10,7 @@ import PlaceRouter from "./pages/PlaceRouter";
 import NotFound from "./pages/NotFound";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import PlaceDetails from "./components/Places/PlaceDetails";
 
 const App = () => {
   // aos section
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/best-places" element={<PlaceRouter />} />
+            <Route path="/best-places/:id" element={<PlaceDetails />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
             <Route path="*" element={<NotFound />} />
           </Route>

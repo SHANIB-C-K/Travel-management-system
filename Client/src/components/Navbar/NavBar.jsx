@@ -19,7 +19,7 @@ const Navbar = ({ handleOrderPopup }) => {
         <div className="bg-gradient-to-r from-primary to-secondary text-white ">
           <div className="container py-[2px] sm:block hidden">
             <div className="flex items-center justify-between">
-              <p className="text-sm">20% off on next booking</p>
+              <p className="text-sm">20% off on first booking</p>
               <p>mobile no. +91 6282844209</p>
             </div>
           </div>
