@@ -32,8 +32,8 @@ const App = () => {
             <Route index element={<HomeScreen />} />
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/best-places" element={<PlaceRouter />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
-            <Route path="/places" element={<PlaceRouter />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

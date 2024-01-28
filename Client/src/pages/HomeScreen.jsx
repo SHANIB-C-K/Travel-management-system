@@ -8,6 +8,7 @@ import BannerPic from "../assets/cover-women.jpg";
 import Blogs from "./Blogs";
 import Banner from "../components/Banner/Banner";
 import Banner2 from "../assets/travel-cover2.jpg";
+import Testimonial from "../components/Testimonial/Testimonial";
 
 const HomeScreen = () => {
   return (
@@ -34,7 +35,10 @@ const HomeScreen = () => {
         <Blogs />
         {/* Banner component section */}
         <Banner />
+        {/* Banner image 2 component section */}
         <BannerImg img={Banner2} />
+        {/* Testimonial component section */}
+        <Testimonial />
       </div>
     </>
   );
