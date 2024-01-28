@@ -40,6 +40,11 @@ const ResponsiveMenu = ({ showMenu, setShowMenu }) => {
             </ul>
           </div>
         </div>
+        <div className="footer">
+          <h1>
+            Made with by <a href="https://github.com/shanib-c-k">SHANIB C K</a>{" "}
+          </h1>
+        </div>
       </div>
     </>
   );

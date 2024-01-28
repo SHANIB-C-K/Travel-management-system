@@ -6,10 +6,13 @@ import Place from "../components/Places/Place";
 import BannerImg from "../components/BannerImg/BannerImg";
 import BannerPic from "../assets/cover-women.jpg";
 import Blogs from "./Blogs";
+import Banner from "../components/Banner/Banner";
+import Banner2 from "../assets/travel-cover2.jpg";
 
 const HomeScreen = () => {
   return (
     <>
+      {/* html section */}
       <div>
         <div className="h-[700px] relative">
           <video
@@ -29,6 +32,9 @@ const HomeScreen = () => {
         <BannerImg img={BannerPic} />
         {/* Blogs xomponent section */}
         <Blogs />
+        {/* Banner component section */}
+        <Banner />
+        <BannerImg img={Banner2} />
       </div>
     </>
   );
