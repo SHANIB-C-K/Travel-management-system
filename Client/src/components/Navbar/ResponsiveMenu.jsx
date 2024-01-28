@@ -4,7 +4,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavbarLinks from "../../JSON/NavBarLinks.json";
 
-const ResponsiveMenu = ({ showMenu, setShowMenu }) => {
+const ResponsiveMenu = ({ showMenu, setShowMenu, Logout }) => {
   return (
     <>
       <div
@@ -37,6 +37,12 @@ const ResponsiveMenu = ({ showMenu, setShowMenu }) => {
                   </Link>
                 </li>
               ))}
+              <button
+                className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full block sm:hidden"
+                onClick={Logout}
+              >
+                Logout
+              </button>
             </ul>
           </div>
         </div>

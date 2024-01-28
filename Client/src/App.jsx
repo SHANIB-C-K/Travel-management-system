@@ -11,8 +11,12 @@ import NotFound from "./pages/NotFound";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import PlaceDetails from "./components/Places/PlaceDetails";
+import Auth from "./pages/Auth";
 
 const App = () => {
+  // loged or not check
+  const loggedIn = window.localStorage.getItem("loggedIn");
+
   // aos section
   React.useEffect(() => {
     AOS.init({
@@ -29,7 +33,7 @@ const App = () => {
       {/* Router creating section */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={loggedIn ? <Layout /> : <Auth />}>
             <Route index element={<HomeScreen />} />
             <Route path="/about" element={<About />} />
             <Route path="/blogs" element={<Blogs />} />
@@ -37,6 +41,7 @@ const App = () => {
             <Route path="/best-places/:id" element={<PlaceDetails />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/auth" element={<Auth />} />
           </Route>
         </Routes>
       </BrowserRouter>

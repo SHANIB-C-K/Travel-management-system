@@ -1,18 +1,34 @@
 // importing section
 import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
 import ResponsiveMenu from "./ResponsiveMenu";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import DropdownLinks from "../../JSON/DropDownLinks.json";
+import { signOut } from "firebase/auth";
+import { database } from "../../config/firebase";
 
-const Navbar = ({ handleOrderPopup }) => {
+const Navbar = ({ handleOrderPopup, loggedIn }) => {
+  // useState section
   const [showMenu, setShowMenu] = useState(false);
+
+  // navigate section
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  // logout function create section
+  const Logout = () => {
+    signOut(database).then((val) => {
+      window.localStorage.removeItem("loggedIn", false);
+      navigate("/");
+      location.reload();
+    });
+  };
+
   return (
     <>
       <nav className="fixed top-0 right-0 w-full z-50 bg-white backdrop-blur-sm text-black shadow-md">
@@ -90,6 +106,14 @@ const Navbar = ({ handleOrderPopup }) => {
               >
                 Book Now
               </button>
+
+              <button
+                className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full sm:block hidden"
+                onClick={Logout}
+              >
+                Logout
+              </button>
+
               {/* Mobile Hamburger icon */}
               <div className="md:hidden block">
                 {showMenu ? (
@@ -109,7 +133,11 @@ const Navbar = ({ handleOrderPopup }) => {
             </div>
           </div>
         </div>
-        <ResponsiveMenu setShowMenu={setShowMenu} showMenu={showMenu} />
+        <ResponsiveMenu
+          setShowMenu={setShowMenu}
+          showMenu={showMenu}
+          Logout={Logout}
+        />
       </nav>
     </>
   );
