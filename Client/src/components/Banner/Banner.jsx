@@ -18,7 +18,7 @@ const Banner = () => {
                 <img
                   src={TravelImg}
                   alt="biryani img"
-                  className="max-w-[450px] h-[350px] w-full mx-auto drop-shadow-[5px_5px_12px_rgba(0,0,0,0.7)] object-cover hover:skew-x-2 hover:scale-110"
+                  className="max-w-[450px] h-[350px] w-full mx-auto drop-shadow-[5px_5px_12px_rgba(0,0,0,0.7)] object-cover"
                 />
               </div>
               {/* text content section */}
