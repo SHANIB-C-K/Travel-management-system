@@ -1,5 +1,5 @@
 import React from "react";
-import { database } from "../config/firebase";
+import { database } from "../.env/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -65,7 +65,10 @@ const Auth = () => {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" onSubmit={(e) => HandleSubmit(e, login ? 'signin' : 'signup')}>
+          <form
+            className="space-y-6"
+            onSubmit={(e) => HandleSubmit(e, login ? "signin" : "signup")}
+          >
             <div>
               <label
                 htmlFor="email"
