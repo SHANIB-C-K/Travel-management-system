@@ -74,7 +74,7 @@ const Auth = () => {
                 htmlFor="email"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Enter Email address
+                Email address
               </label>
               <div className="mt-2">
                 <input
@@ -94,7 +94,7 @@ const Auth = () => {
                   htmlFor="password"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
-                  Enter Password
+                  Password
                 </label>
               </div>
               <div className="mt-2">
