@@ -38,7 +38,7 @@ const ResponsiveMenu = ({ showMenu, setShowMenu, Logout }) => {
                 </li>
               ))}
               <button
-                className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full block sm:hidden"
+                className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full block md:hidden"
                 onClick={Logout}
               >
                 Logout

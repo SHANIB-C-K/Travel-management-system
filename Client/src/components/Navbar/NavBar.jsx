@@ -71,10 +71,7 @@ const Navbar = ({ handleOrderPopup }) => {
                   </NavLink>
                 </li>
                 <li className="group relative cursor-pointer">
-                  <a
-                    href="/"
-                    className="flex h-[72px] items-center gap-[2px]"
-                  >
+                  <a href="/" className="flex h-[72px] items-center gap-[2px]">
                     Quick Links{" "}
                     <span>
                       <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
@@ -84,12 +81,12 @@ const Navbar = ({ handleOrderPopup }) => {
                     <ul className="space-y-3">
                       {DropdownLinks.map((data, id) => (
                         <li key={id}>
-                          <a
+                          <NavLink
                             className="inline-block w-full rounded-md p-2 hover:bg-primary/20"
-                            href={data.link}
+                            to={data.link}
                           >
                             {data.name}
-                          </a>
+                          </NavLink>
                         </li>
                       ))}
                     </ul>
@@ -108,7 +105,7 @@ const Navbar = ({ handleOrderPopup }) => {
               </button>
 
               <button
-                className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full sm:block hidden"
+                className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full md:block hidden"
                 onClick={Logout}
               >
                 Logout
