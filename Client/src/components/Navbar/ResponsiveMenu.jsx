@@ -8,6 +8,7 @@ import { IoLogOut } from "react-icons/io5";
 const ResponsiveMenu = ({ showMenu, setShowMenu, Logout }) => {
   return (
     <>
+      {/* html section */}
       <div
         className={`${
           showMenu ? "left-0" : "-left-[100%]"
@@ -38,6 +39,7 @@ const ResponsiveMenu = ({ showMenu, setShowMenu, Logout }) => {
                   </Link>
                 </li>
               ))}
+              {/* logout button create section */}
               <button
                 className="bg-gradient-to-r from-red-600 to-red-400 hover:bg-bg-gradient-to-r hover:from-red-400 hover:bg-red-600 transition-all duration-600 text-white px-5 py-1 rounded-full block md:hidden"
                 onClick={Logout}
