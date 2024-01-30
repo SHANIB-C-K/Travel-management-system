@@ -5,6 +5,8 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Auth = () => {
   // usestate section
@@ -18,15 +20,25 @@ const Auth = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+
     if (type == "signup") {
       createUserWithEmailAndPassword(database, email, password)
         .then((data) => {
+          console.log(passlen);
           console.log(data, "authData");
           setLogin(true);
         })
         .catch((err) => {
-          alert(err);
-          setLogin(true);
+          if (email == "") {
+            toast.error("please enter your email", toastOptions);
+            return false;
+          } else if (password == "") {
+            toast.error("Please enter your password", toastOptions);
+            return false;
+          } else if (password.length < 6) {
+            toast.error("Password must be 6 charector", toastOptions);
+            return false;
+          }
         });
     } else {
       signInWithEmailAndPassword(database, email, password)
@@ -42,12 +54,21 @@ const Auth = () => {
     }
   };
 
+  // login registrater function create section
   const LoginRegister = () => {
     if (!login) {
       setLogin(true);
     } else {
       setLogin(false);
     }
+  };
+
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 8000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
   };
 
   return (
@@ -82,7 +103,6 @@ const Auth = () => {
                   name="email"
                   type="email"
                   autoComplete="email"
-                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -102,7 +122,6 @@ const Auth = () => {
                   id="password"
                   name="password"
                   type="password"
-                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -127,6 +146,7 @@ const Auth = () => {
               {login ? "SignUp" : "SignIn"}
             </a>
           </p>
+          <ToastContainer />
         </div>
       </div>
     </>
