@@ -2,16 +2,16 @@
     {
         "id": 1,
         "name": "Our Services",
-        "link": "/#services"
+        "link": "/services"
     },
     {
         "id": 2,
         "name": "Top Brands",
-        "link": "/#mobile_brands"
+        "link": "/mobile_brands"
     },
     {
         "id": 3,
         "name": "Location",
-        "link": "/#location"
+        "link": "/location"
     }
 ]

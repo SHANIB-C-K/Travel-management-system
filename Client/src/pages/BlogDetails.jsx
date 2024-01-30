@@ -1,3 +1,4 @@
+// importing section
 import React from "react";
 import { useLocation } from "react-router-dom";
 import BlogsComp from "../components/BlogsComponent/BlogComponent";
@@ -9,6 +10,7 @@ const BlogsDetails = () => {
   const { image, date, title, description, author } = location.state;
 
   return (
+    // html section
     <div className=" pt-20">
       <div className="h-[300px] overflow-hidden">
         <img

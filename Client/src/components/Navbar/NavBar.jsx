@@ -72,7 +72,7 @@ const Navbar = ({ handleOrderPopup }) => {
                 </li>
                 <li className="group relative cursor-pointer">
                   <a
-                    href="/#home"
+                    href="/home"
                     className="flex h-[72px] items-center gap-[2px]"
                   >
                     Quick Links{" "}
