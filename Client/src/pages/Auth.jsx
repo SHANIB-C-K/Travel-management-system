@@ -1,5 +1,5 @@
 import React from "react";
-import { database } from "../.env/firebase";
+import { database } from "../config/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,

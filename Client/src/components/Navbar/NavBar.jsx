@@ -7,7 +7,7 @@ import ResponsiveMenu from "./ResponsiveMenu";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import DropdownLinks from "../../JSON/DropDownLinks.json";
 import { signOut } from "firebase/auth";
-import { database } from "../../.env/firebase";
+import { database } from "../../config/firebase";
 
 const Navbar = ({ handleOrderPopup }) => {
   // useState section
