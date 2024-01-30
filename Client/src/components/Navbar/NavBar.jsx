@@ -8,6 +8,7 @@ import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import DropdownLinks from "../../JSON/DropDownLinks.json";
 import { signOut } from "firebase/auth";
 import { database } from "../../config/firebase";
+import { IoLogOut } from "react-icons/io5";
 
 const Navbar = ({ handleOrderPopup }) => {
   // useState section
@@ -89,12 +90,22 @@ const Navbar = ({ handleOrderPopup }) => {
                           </NavLink>
                         </li>
                       ))}
+                      {/* drop down logout button create section */}
+                      <li>
+                        <NavLink
+                          className="inline-block w-full rounded-md p-2 hover:bg-primary/20 lg:hidden"
+                          onClick={Logout}
+                        >
+                          Logout
+                        </NavLink>
+                      </li>
                     </ul>
                   </div>
                 </li>
               </ul>
             </div>
             <div className="flex items-center gap-4">
+              {/* book now button create section */}
               <button
                 className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full"
                 onClick={() => {
@@ -104,11 +115,12 @@ const Navbar = ({ handleOrderPopup }) => {
                 Book Now
               </button>
 
+              {/* logout button create section */}
               <button
-                className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full md:block hidden"
+                className="bg-gradient-to-r from-red-600 to-red-400 hover:bg-bg-gradient-to-r hover:from-red-400 hover:bg-red-600 transition-all duration-600 text-white px-6 py-2 rounded-full lg:block hidden"
                 onClick={Logout}
               >
-                Logout
+                <IoLogOut className="text-lg" />
               </button>
 
               {/* Mobile Hamburger icon */}
@@ -130,6 +142,7 @@ const Navbar = ({ handleOrderPopup }) => {
             </div>
           </div>
         </div>
+        {/* responsive navebar section */}
         <ResponsiveMenu
           setShowMenu={setShowMenu}
           showMenu={showMenu}

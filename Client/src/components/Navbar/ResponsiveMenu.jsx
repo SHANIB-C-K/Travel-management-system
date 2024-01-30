@@ -3,6 +3,7 @@ import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavbarLinks from "../../JSON/NavBarLinks.json";
+import { IoLogOut } from "react-icons/io5";
 
 const ResponsiveMenu = ({ showMenu, setShowMenu, Logout }) => {
   return (
@@ -38,10 +39,10 @@ const ResponsiveMenu = ({ showMenu, setShowMenu, Logout }) => {
                 </li>
               ))}
               <button
-                className="bg-gradient-to-r from-primary to-secondary hover:bg-bg-gradient-to-r hover:from-secondary hover:bg-primary transition-all duration-600 text-white px-3 py-1 rounded-full block md:hidden"
+                className="bg-gradient-to-r from-red-600 to-red-400 hover:bg-bg-gradient-to-r hover:from-red-400 hover:bg-red-600 transition-all duration-600 text-white px-5 py-1 rounded-full block md:hidden"
                 onClick={Logout}
               >
-                Logout
+                <IoLogOut className="text-xl md:hidden block" />
               </button>
             </ul>
           </div>
