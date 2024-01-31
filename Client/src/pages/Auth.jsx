@@ -39,9 +39,8 @@ const Auth = () => {
             toast.error("Password must be 6 charector", toastOptions);
             return false;
           } else {
+            toast.error(`${err.code}`, toastOptions);
             setLogin(true);
-            toast.success("Account created successfully", toastOptions);
-            return false;
           }
         });
     } else {
@@ -62,11 +61,8 @@ const Auth = () => {
           } else if (password == "") {
             toast.error("Please enter your password", toastOptions);
             return false;
-          } else if (password.length < 6) {
-            toast.error("Password must be 6 charector", toastOptions);
-            return false;
           } else {
-            toast.error("invalid creditions", toastOptions);
+            toast.error(`${err.code}`, toastOptions);
             return false;
           }
         });
