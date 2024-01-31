@@ -22,13 +22,18 @@ const Auth = () => {
     const password = e.target.password.value;
 
     if (type == "signup") {
+      // create account section
       createUserWithEmailAndPassword(database, email, password)
         .then((data) => {
-          console.log(passlen);
-          console.log(data, "authData");
-          setLogin(true);
+          // console.log(passlen);
+          // console.log(data, "authData");
+          setTimeout(() => {
+            toast.success("Account created successfully", toastOptions);
+            setLogin(true);
+          }, 1500);
         })
         .catch((err) => {
+          // validating section
           if (email == "") {
             toast.error("please enter your email", toastOptions);
             return false;
@@ -44,6 +49,7 @@ const Auth = () => {
           }
         });
     } else {
+      // login account creat6e section
       signInWithEmailAndPassword(database, email, password)
         .then((data) => {
           toast.success("You are logged in", toastOptions);
@@ -55,6 +61,7 @@ const Auth = () => {
           }, 1500);
         })
         .catch((err) => {
+          // validation section
           if (email == "") {
             toast.error("please enter your email", toastOptions);
             return false;
@@ -98,7 +105,7 @@ const Auth = () => {
             alt="Your Company"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            {login ? "Sign in to your account" : "Sign up to your account"}
+            {login ? "Login in to your account" : "Sign up to your account"}
           </h2>
         </div>
 
@@ -149,7 +156,7 @@ const Auth = () => {
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Sign in
+                {!login ? "Sign up" : "Login"}
               </button>
             </div>
           </form>
@@ -160,7 +167,7 @@ const Auth = () => {
               onClick={LoginRegister}
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer"
             >
-              {login ? "SignUp" : "SignIn"}
+              {login ? "SignUp" : "Login"}
             </a>
           </p>
           <ToastContainer />
