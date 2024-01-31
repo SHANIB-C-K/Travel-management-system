@@ -7,6 +7,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HomeScreen from "./HomeScreen";
 
 const Auth = () => {
   // usestate section
@@ -56,7 +57,7 @@ const Auth = () => {
           console.log(data, "authData");
           window.localStorage.setItem("loggedIn", true);
           setTimeout(() => {
-            navigate("/");
+            <HomeScreen />;
             location.reload();
           }, 1500);
         })
