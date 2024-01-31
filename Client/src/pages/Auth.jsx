@@ -47,10 +47,13 @@ const Auth = () => {
     } else {
       signInWithEmailAndPassword(database, email, password)
         .then((data) => {
+          toast.success("You are logged in", toastOptions);
           console.log(data, "authData");
           window.localStorage.setItem("loggedIn", true);
-          navigate("/");
-          location.reload();
+          setTimeout(() => {
+            navigate("/");
+            location.reload();
+          }, 1500);
         })
         .catch((err) => {
           if (email == "") {
@@ -63,7 +66,7 @@ const Auth = () => {
             toast.error("Password must be 6 charector", toastOptions);
             return false;
           } else {
-            toast.success("Login successfully", toastOptions);
+            toast.error("invalid creditions", toastOptions);
             return false;
           }
         });
@@ -79,6 +82,7 @@ const Auth = () => {
     }
   };
 
+  // toast design create section
   const toastOptions = {
     position: "bottom-right",
     autoClose: 8000,
@@ -89,6 +93,7 @@ const Auth = () => {
 
   return (
     <>
+      {/* html section */}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
