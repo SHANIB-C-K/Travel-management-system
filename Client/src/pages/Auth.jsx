@@ -38,6 +38,10 @@ const Auth = () => {
           } else if (password.length < 6) {
             toast.error("Password must be 6 charector", toastOptions);
             return false;
+          } else {
+            setLogin(true);
+            toast.success("Account created successfully", toastOptions);
+            return false;
           }
         });
     } else {
@@ -49,7 +53,19 @@ const Auth = () => {
           location.reload();
         })
         .catch((err) => {
-          alert(err);
+          if (email == "") {
+            toast.error("please enter your email", toastOptions);
+            return false;
+          } else if (password == "") {
+            toast.error("Please enter your password", toastOptions);
+            return false;
+          } else if (password.length < 6) {
+            toast.error("Password must be 6 charector", toastOptions);
+            return false;
+          } else {
+            toast.success("Login successfully", toastOptions);
+            return false;
+          }
         });
     }
   };
