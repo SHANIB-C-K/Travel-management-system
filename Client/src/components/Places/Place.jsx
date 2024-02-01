@@ -78,7 +78,7 @@ const Places = ({ handleOrderPopup, filteredData }) => {
       {/* html section */}
       <div
         className="dark:bg-gray-900 dark:text-white bg-gray-50 py-10"
-        id="services"
+        id="searchdata"
       >
         <section data-aos="fade-up" className="container ">
           <h1 className=" my-8 border-l-8 border-primary/50 py-2 pl-2 text-3xl font-bold">
