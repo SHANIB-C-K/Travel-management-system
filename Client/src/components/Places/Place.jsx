@@ -72,7 +72,7 @@ const PlacesData = [
   },
 ];
 
-const Places = ({ handleOrderPopup }) => {
+const Places = ({ filteredData }) => {
   return (
     <>
       {/* html section */}
@@ -83,9 +83,9 @@ const Places = ({ handleOrderPopup }) => {
           </h1>
           {/* maping section */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {PlacesData.map((item, id) => (
+            {filteredData.map((item, id) => (
               <PlaceCard
-                handleOrderPopup={handleOrderPopup}
+                // handleOrderPopup={handleOrderPopup}
                 key={id}
                 {...item}
               />

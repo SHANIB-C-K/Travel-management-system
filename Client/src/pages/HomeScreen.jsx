@@ -9,6 +9,12 @@ import Blogs from "./Blogs";
 import Banner from "../components/Banner/Banner";
 import Banner2 from "../assets/travel-cover2.jpg";
 import Testimonial from "../components/Testimonial/Testimonial";
+import Img1 from "../assets/places/boat.jpg";
+import Img2 from "../assets/places/tajmahal.jpg";
+import Img3 from "../assets/places/water.jpg";
+import Img4 from "../assets/places/place4.jpg";
+import Img5 from "../assets/places/place5.jpg";
+import Img6 from "../assets/places/place6.jpg";
 
 // PlacesData json create section
 const PlacesData = [
@@ -76,8 +82,17 @@ const PlacesData = [
 
 const HomeScreen = () => {
   // usestate section
-  const [searchQuery, setSearchQuery] = useState("");
-  const [filteredData, setFilteredData] = useState(PlacesData);
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const [filteredData, setFilteredData] = React.useState(PlacesData);
+
+  // handleSearch function create section
+  const handleSearch = (query) => {
+    const filteredResults = PlacesData.filter((item) =>
+      item.location.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredData(filteredResults);
+    setSearchQuery(query);
+  };
 
   return (
     <>
@@ -93,10 +108,10 @@ const HomeScreen = () => {
             <source src={NatureVid} type="video/mp4" />
           </video>
           {/* HomeSearch component  */}
-          <HomeSearch />
+          <HomeSearch handleSearch={handleSearch} searchQuery={searchQuery} />
         </div>
         {/* place component section */}
-        <Place />
+        <Place filteredData={filteredData} />
         {/* Banner image component section */}
         <BannerImg img={BannerPic} />
         {/* Blogs xomponent section */}

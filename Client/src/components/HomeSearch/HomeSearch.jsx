@@ -1,7 +1,7 @@
 // importing section
 import React from "react";
 
-const HomeSearch = () => {
+const HomeSearch = ({ handleSearch, searchQuery }) => {
   // usestate section
   const [priceValue, setPriceValue] = React.useState(30);
 
@@ -39,6 +39,8 @@ const HomeSearch = () => {
                   id="destination"
                   placeholder="Dubai"
                   className="w-full bg-gray-100 my-2 range accent-primary focus:outline-primary focus:outline outline-1 rounded-full p-2"
+                  value={searchQuery}
+                  onChange={(e) => handleSearch(e.target.value)}
                 />
               </div>
               {/* date search section */}
