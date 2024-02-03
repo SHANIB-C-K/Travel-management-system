@@ -12,6 +12,7 @@ import "aos/dist/aos.css";
 import PlaceDetails from "./components/Places/PlaceDetails";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import Panel from "./pages/Panel";
 
 const App = () => {
   // loged or not check
@@ -44,6 +45,7 @@ const App = () => {
             <Route path="/mobile_brands" element={<Blogs />} />
             <Route path="/location" element={<About />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/panel" element={<Panel />} />
           </Route>
         </Routes>
       </BrowserRouter>
