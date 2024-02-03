@@ -7,11 +7,11 @@ import About from "./pages/About";
 import Blogs from "./pages/Blogs";
 import BlogDetails from "./pages/BlogDetails";
 import PlaceRouter from "./pages/PlaceRouter";
-import NotFound from "./pages/NotFound";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import PlaceDetails from "./components/Places/PlaceDetails";
 import Auth from "./pages/Auth";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   // loged or not check
@@ -40,10 +40,10 @@ const App = () => {
             <Route path="/best-places" element={<PlaceRouter />} />
             <Route path="/best-places/:id" element={<PlaceDetails />} />
             <Route path="/blogs/:id" element={<BlogDetails />} />
-            <Route path="*" element={<NotFound />} />
             <Route path="/services" element={<HomeScreen />} />
             <Route path="/mobile_brands" element={<Blogs />} />
             <Route path="/location" element={<About />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
