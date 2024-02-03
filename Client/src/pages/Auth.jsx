@@ -3,6 +3,7 @@ import { database } from "../config/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  getAuth,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -12,6 +13,8 @@ import HomeScreen from "./HomeScreen";
 const Auth = () => {
   // usestate section
   const [login, setLogin] = React.useState(false);
+
+  const databases = getAuth();
 
   // navigate create section
   const navigate = useNavigate();
@@ -24,7 +27,7 @@ const Auth = () => {
 
     if (type == "signup") {
       // create account section
-      createUserWithEmailAndPassword(database, email, password)
+      createUserWithEmailAndPassword(databases, email, password)
         .then((data) => {
           // console.log(passlen);
           // console.log(data, "authData");
@@ -51,7 +54,7 @@ const Auth = () => {
         });
     } else {
       // login account creat6e section
-      signInWithEmailAndPassword(database, email, password)
+      signInWithEmailAndPassword(databases, email, password)
         .then((data) => {
           toast.success("You are logged in", toastOptions);
           console.log(data, "authData");

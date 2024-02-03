@@ -7,12 +7,14 @@ import ResponsiveMenu from "./ResponsiveMenu";
 import { HiMenuAlt3, HiMenuAlt1 } from "react-icons/hi";
 import DropdownLinks from "../../JSON/DropDownLinks.json";
 import { signOut } from "firebase/auth";
-import { database } from "../../config/firebase";
+import { getAuth } from "firebase/auth";
 import { IoLogOut } from "react-icons/io5";
 
 const Navbar = ({ handleOrderPopup }) => {
   // useState section
   const [showMenu, setShowMenu] = useState(false);
+
+  const databases = getAuth();
 
   // navigate section
   const navigate = useNavigate();
@@ -23,7 +25,7 @@ const Navbar = ({ handleOrderPopup }) => {
 
   // logout function create section
   const Logout = () => {
-    signOut(database).then((val) => {
+    signOut(databases).then((val) => {
       window.localStorage.removeItem("loggedIn", false);
       navigate("/");
       location.reload();
