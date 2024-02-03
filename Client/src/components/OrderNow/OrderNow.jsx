@@ -4,6 +4,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { database } from "./../../config/firebase";
 import { collection } from "firebase/firestore";
 import { addDoc } from "firebase/firestore";
+import { toast, ToastContainer } from "react-toastify";
 
 const OrderNow = ({ orderPopup, setOrderPopup }) => {
   // usestate section
@@ -11,12 +12,42 @@ const OrderNow = ({ orderPopup, setOrderPopup }) => {
   const [email, setEmail] = React.useState("");
   const [address, setAddress] = React.useState("");
 
+  // email verify section
+  let re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  // toast design create section
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 8000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+  };
+
   // collection create section
   const value = collection(database, "Booking");
 
   // HandleBooking function create section
   const HandleBooking = async () => {
-    await addDoc(value, { name: name, email: email, address: address });
+    // check values is null or not and data add  in the firebase or show error massage
+    if (name == "") {
+      toast.error("Please enter your name", toastOptions);
+    } else if (email == "") {
+      toast.error("Please enter your email", toastOptions);
+    } else if (!re.test(email)) {
+      toast.warning("Please enter a valid email", toastOptions);
+    } else if (address == "") {
+      toast.error("Please enter your address", toastOptions);
+    } else {
+      await addDoc(value, { name: name, email: email, address: address }).catch(
+        (err) => toast.error(`${err.message}`, toastOptions)
+      );
+      toast.success("Booked successfully", toastOptions);
+      setTimeout(() => {
+        setOrderPopup(false);
+      }, 2000);
+    }
   };
 
   return (
@@ -74,6 +105,7 @@ const OrderNow = ({ orderPopup, setOrderPopup }) => {
           </div>
         </div>
       )}
+      <ToastContainer />
     </>
   );
 };
