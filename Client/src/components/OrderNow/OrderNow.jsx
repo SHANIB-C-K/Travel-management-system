@@ -45,6 +45,7 @@ const OrderNow = ({ orderPopup, setOrderPopup }) => {
       );
       toast.success("Booked successfully", toastOptions);
       setTimeout(() => {
+        setOrderPopup(false);
         // all field is empty set after 2 second
         setName("");
         setEmail("");
