@@ -9,6 +9,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import EditData from "../components/EditComponent/EditData";
+import { toast } from "react-toastify";
 
 const Panel = () => {
   // usestete section
@@ -18,6 +19,10 @@ const Panel = () => {
   const [address, setAddress] = React.useState("");
   const [id, setId] = React.useState("");
   const [orderPopup, setOrderPopup] = React.useState(false);
+
+  // email or not check
+  let re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   // collection create section
   const collections = collection(database, "Booking");
@@ -52,8 +57,37 @@ const Panel = () => {
 
   // HandleUpdateBooking function create section
   const HandleUpdateBooking = async () => {
-    const updateData = doc(database, "Booking", id);
-    await updateDoc(updateData, { name: name, email: email, address: address });
+    // check field is empty or not
+    if (name == "") {
+      toast.error("Please Enter your name", toastOptions);
+      return false;
+    } else if (email == "") {
+      toast.error("Please enter your email", toastOptions);
+    } else if (!re.test(email)) {
+      toast.warning("Please enter a valid email", toastOptions);
+    } else if (address == "") {
+      toast.error("Please enter your address", toastOptions);
+    } else {
+      const updateData = doc(database, "Booking", id);
+      await updateDoc(updateData, {
+        name: name,
+        email: email,
+        address: address,
+      });
+      toast.success("Updated successfully", toastOptions);
+      setTimeout(() => {
+        setOrderPopup(false);
+      }, 1000);
+    }
+  };
+
+  // toast design create section
+  const toastOptions = {
+    position: "bottom-right",
+    autoClose: 8000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
   };
 
   return (
