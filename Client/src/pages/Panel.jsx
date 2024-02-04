@@ -1,7 +1,7 @@
 // importing section
 import React, { useEffect } from "react";
 import { database } from "./../config/firebase";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, doc, deleteDoc } from "firebase/firestore";
 
 const Panel = () => {
   // usestete section
@@ -19,6 +19,12 @@ const Panel = () => {
     };
     getData();
   });
+
+  // HandleDelete function create section
+  const HandleDelete = async (id) => {
+    const deleteData = doc(database, "Booking", id);
+    deleteDoc(deleteData);
+  };
 
   return (
     <>
@@ -42,6 +48,9 @@ const Panel = () => {
                 </th>
                 <th scope="col" className="px-6 py-3">
                   <span className="sr-only">Edit</span>
+                </th>
+                <th scope="col" className="px-6 py-3">
+                  <span className="sr-only">Delete</span>
                 </th>
               </tr>
             </thead>
@@ -71,6 +80,15 @@ const Panel = () => {
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       Edit
+                    </a>
+                  </td>
+                  <td className="px-6 py-4 text-right">
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      onClick={() => HandleDelete(data.id)}
+                    >
+                      Delete
                     </a>
                   </td>
                 </tr>
