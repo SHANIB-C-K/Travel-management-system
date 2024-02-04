@@ -1,11 +1,23 @@
 // importing section
 import React, { useEffect } from "react";
 import { database } from "./../config/firebase";
-import { getDocs, collection, doc, deleteDoc } from "firebase/firestore";
+import {
+  getDocs,
+  collection,
+  doc,
+  deleteDoc,
+  updateDoc,
+} from "firebase/firestore";
+import EditData from "../components/EditComponent/EditData";
 
 const Panel = () => {
   // usestete section
   const [datas, setDatas] = React.useState([]);
+  const [name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [address, setAddress] = React.useState("");
+  const [id, setId] = React.useState("");
+  const [orderPopup, setOrderPopup] = React.useState(false);
 
   // collection create section
   const collections = collection(database, "Booking");
@@ -24,6 +36,24 @@ const Panel = () => {
   const HandleDelete = async (id) => {
     const deleteData = doc(database, "Booking", id);
     deleteDoc(deleteData);
+  };
+
+  // update function create section
+  const HandleUpdate = async () => {};
+
+  // order popup open function create section
+  const EditPopupOpen = (name, email, address, id) => {
+    setOrderPopup(!orderPopup);
+    setName(name);
+    setEmail(email);
+    setAddress(address);
+    setId(id);
+  };
+
+  // HandleUpdateBooking function create section
+  const HandleUpdateBooking = async () => {
+    const updateData = doc(database, "Booking", id);
+    await updateDoc(updateData, { name: name, email: email, address: address });
   };
 
   return (
@@ -78,6 +108,14 @@ const Panel = () => {
                     <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      onClick={() =>
+                        EditPopupOpen(
+                          data.name,
+                          data.email,
+                          data.address,
+                          data.id
+                        )
+                      }
                     >
                       Edit
                     </a>
@@ -97,6 +135,17 @@ const Panel = () => {
           </table>
         </div>
       </div>
+      <EditData
+        orderPopup={orderPopup}
+        setOrderPopup={setOrderPopup}
+        name={name}
+        email={email}
+        address={address}
+        HandleUpdateBooking={HandleUpdateBooking}
+        setName={setName}
+        setEmail={setEmail}
+        setAddress={setAddress}
+      />
     </>
   );
 };
