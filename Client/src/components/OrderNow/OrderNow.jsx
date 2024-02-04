@@ -26,7 +26,7 @@ const OrderNow = ({ orderPopup, setOrderPopup }) => {
   };
 
   // collection create section
-  const value = collection(database, "Booking");
+  const collections = collection(database, "Booking");
 
   // HandleBooking function create section
   const HandleBooking = async () => {
@@ -40,7 +40,7 @@ const OrderNow = ({ orderPopup, setOrderPopup }) => {
     } else if (address == "") {
       toast.error("Please enter your address", toastOptions);
     } else {
-      await addDoc(value, { name: name, email: email, address: address }).catch(
+      await addDoc(collections, { name: name, email: email, address: address }).catch(
         (err) => toast.error(`${err.message}`, toastOptions)
       );
       toast.success("Booked successfully", toastOptions);
