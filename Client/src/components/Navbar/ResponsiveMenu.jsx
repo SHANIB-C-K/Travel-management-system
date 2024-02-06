@@ -4,8 +4,11 @@ import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import NavbarLinks from "../../JSON/NavBarLinks.json";
 import { IoLogOut } from "react-icons/io5";
+import { getAuth } from "firebase/auth";
 
 const ResponsiveMenu = ({ showMenu, setShowMenu, Logout }) => {
+  const auth = getAuth();
+
   return (
     <>
       {/* html section */}
@@ -20,7 +23,7 @@ const ResponsiveMenu = ({ showMenu, setShowMenu, Logout }) => {
             <div className="flex items-center justify-start gap-4">
               <FaUserCircle size={50} className="text-gray-500" />
               <div className="text-gray-500">
-                <h1>Hello user</h1>
+                <h1>{auth?.currentUser?.email}</h1>
                 <h1 className="text-sm text-slate-500">Premium user</h1>
               </div>
             </div>
