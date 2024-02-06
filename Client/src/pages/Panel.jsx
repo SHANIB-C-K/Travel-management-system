@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore";
 import EditData from "../components/EditComponent/EditData";
 import { toast } from "react-toastify";
+import AdminLogin from "../components/AdminLogin/AdminLogin";
 
 const Panel = () => {
   // usestete section
@@ -19,6 +20,7 @@ const Panel = () => {
   const [address, setAddress] = React.useState("");
   const [id, setId] = React.useState("");
   const [orderPopup, setOrderPopup] = React.useState(false);
+  const [panels, setPanels] = React.useState(false);
 
   // email or not check
   let re =
@@ -93,93 +95,102 @@ const Panel = () => {
   return (
     <>
       {/* html section */}
-      <div className="h-screen w-screen flex flex-col items-center justify-center">
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                <th scope="col" className="px-6 py-3">
-                  SI NO
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  NAME
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  EMAIL
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  ADDRESS
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  <span className="sr-only">Edit</span>
-                </th>
-                <th scope="col" className="px-6 py-3">
-                  <span className="sr-only">Delete</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {datas.map((data, id) => (
-                <tr
-                  key={id}
-                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-                >
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    {id + 1}
-                  </th>
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    {data.name}
-                  </th>
-                  <td className="px-6 py-4">{data.email}</td>
-                  <td className="px-6 py-4">{data.address}</td>
-                  <td className="px-6 py-4 text-right">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      onClick={() =>
-                        EditPopupOpen(
-                          data.name,
-                          data.email,
-                          data.address,
-                          data.id
-                        )
-                      }
+      {!panels ? (
+        <>
+          {" "}
+          <AdminLogin setPanels={setPanels} />{" "}
+        </>
+      ) : (
+        <>
+          <div className="h-screen w-screen flex flex-col items-center justify-center">
+            <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+              <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                    <th scope="col" className="px-6 py-3">
+                      SI NO
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      NAME
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      EMAIL
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      ADDRESS
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      <span className="sr-only">Edit</span>
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      <span className="sr-only">Delete</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {datas.map((data, id) => (
+                    <tr
+                      key={id}
+                      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                     >
-                      Edit
-                    </a>
-                  </td>
-                  <td className="px-6 py-4 text-right">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                      onClick={() => HandleDelete(data.id)}
-                    >
-                      Delete
-                    </a>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <EditData
-        orderPopup={orderPopup}
-        setOrderPopup={setOrderPopup}
-        name={name}
-        email={email}
-        address={address}
-        HandleUpdateBooking={HandleUpdateBooking}
-        setName={setName}
-        setEmail={setEmail}
-        setAddress={setAddress}
-      />
+                      <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        {id + 1}
+                      </th>
+                      <th
+                        scope="row"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        {data.name}
+                      </th>
+                      <td className="px-6 py-4">{data.email}</td>
+                      <td className="px-6 py-4">{data.address}</td>
+                      <td className="px-6 py-4 text-right">
+                        <a
+                          href="#"
+                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          onClick={() =>
+                            EditPopupOpen(
+                              data.name,
+                              data.email,
+                              data.address,
+                              data.id
+                            )
+                          }
+                        >
+                          Edit
+                        </a>
+                      </td>
+                      <td className="px-6 py-4 text-right">
+                        <a
+                          href="#"
+                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          onClick={() => HandleDelete(data.id)}
+                        >
+                          Delete
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <EditData
+            orderPopup={orderPopup}
+            setOrderPopup={setOrderPopup}
+            name={name}
+            email={email}
+            address={address}
+            HandleUpdateBooking={HandleUpdateBooking}
+            setName={setName}
+            setEmail={setEmail}
+            setAddress={setAddress}
+          />
+        </>
+      )}
     </>
   );
 };
