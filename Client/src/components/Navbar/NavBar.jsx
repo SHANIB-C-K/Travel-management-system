@@ -33,8 +33,8 @@ const Navbar = ({ handleOrderPopup }) => {
       setTimeout(() => {
         <Auth />;
         location.reload();
-        setTime(false);
       }, 1000);
+      // setTime(false);
     });
   };
 
