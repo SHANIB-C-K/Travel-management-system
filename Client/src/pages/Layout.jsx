@@ -9,6 +9,7 @@ const Layout = () => {
   // usestate section
   const [orderPopup, setOrderPopup] = React.useState(false);
   const [time, setTime] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   // order popup open function create section
   const handleOrderPopup = () => {
@@ -16,11 +17,19 @@ const Layout = () => {
   };
 
   setTimeout(() => {
-    setTime(true);
+    setLoading(true);
   }, 2000);
   return (
     <>
-      {!time ? (
+      {time ? (
+        <>
+          <div className="h-screen w-screen flex flex-col items-center justify-center">
+            <h1 class="flex font-semibold text-purple-600">
+              <span class="animate-waving-hand text-9xl">👋🏻</span>
+            </h1>
+          </div>
+        </>
+      ) : !loading ? (
         <>
           {/* loading section */}
           <div className="flex space-x-2 justify-center items-center bg-white h-screen dark:invert">
@@ -32,7 +41,11 @@ const Layout = () => {
         </>
       ) : (
         <>
-          <Navbar handleOrderPopup={handleOrderPopup} />
+          <Navbar
+            handleOrderPopup={handleOrderPopup}
+            time={time}
+            setTime={setTime}
+          />
           <Outlet />
           <Footer />
           <OrderNow orderPopup={orderPopup} setOrderPopup={setOrderPopup} />

@@ -11,10 +11,9 @@ import { getAuth } from "firebase/auth";
 import { IoLogOut } from "react-icons/io5";
 import Auth from "../../pages/Auth";
 
-const Navbar = ({ handleOrderPopup }) => {
+const Navbar = ({ handleOrderPopup, time, setTime }) => {
   // useState section
   const [showMenu, setShowMenu] = useState(false);
-  const [time, setTime] = React.useState(false);
 
   const databases = getAuth();
 
