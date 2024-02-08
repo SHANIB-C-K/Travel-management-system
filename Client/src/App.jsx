@@ -13,6 +13,7 @@ import PlaceDetails from "./components/Places/PlaceDetails";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import Panel from "./pages/Panel";
+import OfflineDetection from "./components/InternetCheck/OfflineDetection";
 
 const App = () => {
   // loged or not check
@@ -32,23 +33,25 @@ const App = () => {
   return (
     <>
       {/* Router creating section */}
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={loggedIn ? <Layout /> : <Auth />}>
-            <Route index element={<HomeScreen />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/best-places" element={<PlaceRouter />} />
-            <Route path="/best-places/:id" element={<PlaceDetails />} />
-            <Route path="/blogs/:id" element={<BlogDetails />} />
-            <Route path="/services" element={<HomeScreen />} />
-            <Route path="/mobile_brands" element={<Blogs />} />
-            <Route path="/location" element={<About />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/panel" element={<Panel />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <OfflineDetection>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={loggedIn ? <Layout /> : <Auth />}>
+              <Route index element={<HomeScreen />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/best-places" element={<PlaceRouter />} />
+              <Route path="/best-places/:id" element={<PlaceDetails />} />
+              <Route path="/blogs/:id" element={<BlogDetails />} />
+              <Route path="/services" element={<HomeScreen />} />
+              <Route path="/mobile_brands" element={<Blogs />} />
+              <Route path="/location" element={<About />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/panel" element={<Panel />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </OfflineDetection>
     </>
   );
 };
