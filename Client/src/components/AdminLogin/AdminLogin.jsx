@@ -79,7 +79,7 @@ function AdminLogin({ setPanels }) {
     event.preventDefault();
 
     if (HandleValidate() === true) {
-      localStorage.setItem("admin", JSON.stringify(user));
+      localStorage.setItem("admin", true);
       setPanels(true);
     }
   };
